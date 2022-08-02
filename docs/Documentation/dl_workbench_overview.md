@@ -54,7 +54,7 @@ DL Workbench also provides the [JupyterLab environment](https://docs.openvino.ai
 
 
 ## User Goals
-
+#
 DL Workbench helps achieve your goals depending on the stage of your deep learning journey. 
 
 If you are a beginner in the deep learning field, the DL Workbench provides you with
