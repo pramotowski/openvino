@@ -93,6 +93,7 @@ if(THREADING STREQUAL "OMP")
 endif()
 
 ## TBB package
+set(THIRDPARTY_SERVER_PATH "https://download.01.org/opencv/master/openvinotoolkit")
 if(THREADING STREQUAL "TBB" OR THREADING STREQUAL "TBB_AUTO")
     reset_deps_cache(TBBROOT TBB_DIR)
 
@@ -183,13 +184,6 @@ if(ENABLE_OPENCV)
     set(OPENCV_BUILD_YOCTO "772")
 
     if(AARCH64)
-        if(DEFINED ENV{THIRDPARTY_SERVER_PATH})
-            set(IE_PATH_TO_DEPS "$ENV{THIRDPARTY_SERVER_PATH}")
-        elseif(DEFINED THIRDPARTY_SERVER_PATH)
-            set(IE_PATH_TO_DEPS "${THIRDPARTY_SERVER_PATH}")
-        else()
-            message(WARNING "OpenCV is not found!")
-        endif()
 
         if(DEFINED IE_PATH_TO_DEPS)
             set(OPENCV_SUFFIX "yocto_kmb")
