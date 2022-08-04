@@ -93,6 +93,7 @@ if(THREADING STREQUAL "OMP")
 endif()
 
 ## TBB package
+# Fix downloading TBB package while using OpenCV package from third party server
 set(THIRDPARTY_SERVER_PATH "https://download.01.org/opencv/master/openvinotoolkit")
 if(THREADING STREQUAL "TBB" OR THREADING STREQUAL "TBB_AUTO")
     reset_deps_cache(TBBROOT TBB_DIR)
@@ -179,10 +180,18 @@ if(ENABLE_OPENCV)
     reset_deps_cache(OpenCV_DIR)
 
     set(OPENCV_VERSION "4.5.5")
+    # This build apply only to linux package
     set(OPENCV_BUILD "131")
     set(OPENCV_BUILD_YOCTO "772")
 
     if(AARCH64)
+        # if(DEFINED ENV{THIRDPARTY_SERVER_PATH})
+        #     set(IE_PATH_TO_DEPS "$ENV{THIRDPARTY_SERVER_PATH}")
+        # elseif(DEFINED THIRDPARTY_SERVER_PATH)
+        #     set(IE_PATH_TO_DEPS "${THIRDPARTY_SERVER_PATH}")
+        # else()
+        #     message(WARNING "OpenCV is not found!")
+        # endif()
 
         if(DEFINED IE_PATH_TO_DEPS)
             set(OPENCV_SUFFIX "yocto_kmb")
@@ -200,6 +209,7 @@ if(ENABLE_OPENCV)
     else()
         if(WIN32 AND X86_64)
             RESOLVE_DEPENDENCY(OPENCV
+                    # Hardcoded build number for windows package
                     ARCHIVE_WIN "opencv/opencv_${OPENCV_VERSION}-099.txz"
                     TARGET_PATH "${TEMP}/opencv_${OPENCV_VERSION}/opencv"
                     ENVIRONMENT "OpenCV_DIR"
