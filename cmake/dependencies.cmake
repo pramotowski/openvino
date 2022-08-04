@@ -200,7 +200,7 @@ if(ENABLE_OPENCV)
     else()
         if(WIN32 AND X86_64)
             RESOLVE_DEPENDENCY(OPENCV
-                    ARCHIVE_WIN "opencv/opencv_${OPENCV_VERSION}-${OPENCV_BUILD}.txz"
+                    ARCHIVE_WIN "opencv/opencv_${OPENCV_VERSION}-099.txz"
                     TARGET_PATH "${TEMP}/opencv_${OPENCV_VERSION}/opencv"
                     ENVIRONMENT "OpenCV_DIR"
                     VERSION_REGEX ".*_([0-9]+.[0-9]+.[0-9]+).*"
