@@ -177,7 +177,7 @@ endif()
 ## OpenCV
 if(ENABLE_OPENCV)
     reset_deps_cache(OpenCV_DIR)
-    
+
     set(OPENCV_VERSION "4.5.5")
     set(OPENCV_BUILD "131")
     set(OPENCV_BUILD_YOCTO "772")
