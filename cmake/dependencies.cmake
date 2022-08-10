@@ -178,7 +178,7 @@ endif()
 if(ENABLE_OPENCV)
     reset_deps_cache(OpenCV_DIR)
     
-    set(IE_PATH_TO_DEPS "http://releases.ti.intel.com/Temp/opencv")
+    set(IE_PATH_TO_DEPS "http://releases.ti.intel.com/Releases/opencv")
     set(OPENCV_VERSION "4.5.5")
     set(OPENCV_BUILD "131")
     set(OPENCV_BUILD_YOCTO "772")
